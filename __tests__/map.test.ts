@@ -1,9 +1,9 @@
-import SpaceRobots from "../src/index";
+import Map from "../src/models/map";
 
 describe('Map', ()=>{
     it('should successfully create a map 5x5', ()=>{
-        const spaceRobots = new SpaceRobots(5,5);
-        const dimensions = spaceRobots.dimensions;
+        const map = new Map(5,5);
+        const dimensions = map.dimensions;
         expect(dimensions).toEqual([5,5]);
     })
 });

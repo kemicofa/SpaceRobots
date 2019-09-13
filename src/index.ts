@@ -1,15 +1,16 @@
+import Map from "./models/map";
+
 export default class SpaceRobots {
 
+    private map: Map;
     constructor(
-        private width: number,
-        private height: number,
-    ){}
+        width: number,
+        height: number,
+    ){
+        this.map = new Map(width, height);
+    }
 
     public deploy(x: number, y: number){
         throw new Error("Not implemented");
-    }
-
-    get dimensions(): number[] {
-        return [this.width, this.height];
     }
 }
