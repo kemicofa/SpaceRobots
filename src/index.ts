@@ -1,13 +1,15 @@
+import RobotService from "./services/robot.service";
 import Map from "./models/map";
 
 export default class SpaceRobots {
 
-    private map: Map;
+    private robotService: RobotService;
     constructor(
         width: number,
         height: number,
     ){
-        this.map = new Map(width, height);
+        const map = new Map(width, height);
+        this.robotService = new RobotService(map);
     }
 
     public deploy(x: number, y: number){
