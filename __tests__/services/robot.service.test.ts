@@ -1,5 +1,6 @@
 import RobotService from "../../src/services/robot.service";
 import Map from "../../src/models/map";
+import { Action } from "../../src/enums/action";
 
 describe('Robot Service', ()=>{
     let robotService: RobotService;
@@ -23,7 +24,7 @@ describe('Robot Service', ()=>{
     });
 
     it('should be able to handle actions', ()=>{
-        const actions = "LLL".split("");
+        const actions = [Action.L, Action.L, Action.L];
         actions.forEach(action=>robotService.applyAction(action))
         const robot = robotService.currentRobot;
         expect(robot.direction.label).toEqual('E');

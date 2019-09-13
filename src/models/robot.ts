@@ -34,4 +34,13 @@ export default class Robot {
         this.x += x;
         this.y += y;
     }
+
+    get previsionalPosition(): number[]
+    {
+        const {direction:{values:[x,y]}} = this.orientation;
+        return [
+            this.x + x,
+            this.y + y
+        ]
+    }
 }

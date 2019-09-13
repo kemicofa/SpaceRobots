@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <div id="container">
+        </div<>
+        <script src="../dist/space_robots.cci.js"></script>
+        <script>
+            const container = document.getElementById("container");
+            const spaceRobots = new SpaceRobots.default(5,5);
+            spaceRobots.deploy(3,3);
+            container.innerText = JSON.stringify(spaceRobots.showState());
+        </script>
+    </body>
+</html>

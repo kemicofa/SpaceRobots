@@ -1,5 +1,6 @@
 import RobotService from "./services/robot.service";
 import Map from "./models/map";
+import Utils from "./utils/index";
 
 export default class SpaceRobots {
 
@@ -13,6 +14,16 @@ export default class SpaceRobots {
     }
 
     public deploy(x: number, y: number){
-        throw new Error("Not implemented");
+        this.robotService.add(x,y);
+    }
+
+    public applyActions(actions: string){
+        Utils
+            .SplitActions(actions)
+            .forEach(this.robotService.applyAction);
+    }
+
+    public showState(){
+        return this.robotService.data;
     }
 }
