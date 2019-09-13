@@ -1,4 +1,5 @@
 import Orientation from "./orientation";
+import { Direction } from "./directions";
 
 export default class Robot {
 
@@ -15,8 +16,22 @@ export default class Robot {
         return [this.x, this.y];
     }
 
-    get direction(): Orientation
+    get direction(): Direction
     {
-        return this.orientation;
+        return this.orientation.direction;
+    }
+
+    rotateLeft(){
+        this.orientation.rotateLeft();
+    }
+
+    rotateRight(){
+        this.orientation.rotateRight();
+    }
+
+    advance(){
+        const {direction:{values:[x,y]}} = this.orientation;
+        this.x += x;
+        this.y += y;
     }
 }

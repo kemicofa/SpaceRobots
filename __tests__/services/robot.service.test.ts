@@ -1,9 +1,11 @@
 import RobotService from "../../src/services/robot.service";
+import Map from "../../src/models/map";
 
 describe('Robot Service', ()=>{
     let robotService: RobotService;
     beforeAll(()=>{
-        robotService = new RobotService();
+        const map = new Map(5,5);
+        robotService = new RobotService(map);
     });
 
     it('should be able to add a robot', ()=>{
@@ -18,5 +20,12 @@ describe('Robot Service', ()=>{
         } catch(err){
             expect(err.message).toEqual("Cannot deploy robot")
         }
-    })
+    });
+
+    it('should be able to handle actions', ()=>{
+        const actions = "LLL".split("");
+        actions.forEach(action=>robotService.applyAction(action))
+        const robot = robotService.currentRobot;
+        expect(robot.direction.label).toEqual('E');
+    });
 });
